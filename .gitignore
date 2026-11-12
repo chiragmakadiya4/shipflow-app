@@ -1,0 +1,16 @@
+node_modules/
+.next/
+shipflow-infra/
+shipflow-app.git/
+dist/
+*.tsbuildinfo
+coverage/
+.env
+.env.*
+!.env.example
+!.env.local.example
+.tools/node.tar.xz
+.tools/node-v*/
+!.tools/README.md
+playwright-report/
+test-results/
