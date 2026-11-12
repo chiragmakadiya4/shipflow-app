@@ -74,15 +74,16 @@ Every commit should pass formatting, lint, typecheck, and relevant tests. Do not
 
 ## Initial commit sequence
 
-- [ ] `chore(repo): initialize shipflow-app workspace`
-- [ ] `feat(contract): add open-source repository tracking contracts`
-- [ ] `feat(api): add repository and deployment lifecycle endpoints`
-- [ ] `test(api): cover promotion, idempotency, and tenant isolation`
-- [ ] `feat(web): migrate dashboard to Next.js App Router`
+- [x] `chore(repo): initialize shipflow-app workspace` — `7cf71e3`
+- [x] `chore(tooling): configure Auth0 MCP for workspace` — `63f824b`
+- [x] `feat(contract): add open-source repository tracking contracts` — included in the initial workspace commit
+- [x] `feat(api): add repository and deployment lifecycle endpoints` — included in the initial workspace commit
+- [x] `test(api): cover promotion, idempotency, and tenant isolation` — included in the initial workspace commit
+- [x] `feat(web): migrate dashboard to Next.js App Router` — included in the initial workspace commit
 - [ ] `feat(sync): track selected public GitHub repositories`
 - [ ] `ci: add checks and Vercel preview deployment documentation`
 - [ ] `docs: add free-tier limits and demo runbook`
-- [ ] Tag first demo release as `v0.1.0`
+- [ ] Tag first demo release as `v0.1.0` after the hosted demo is verified
 
 ## Local repository status
 
@@ -91,3 +92,12 @@ Every commit should pass formatting, lint, typecheck, and relevant tests. Do not
 - `shipflow-workers`: intentionally not created yet. Create it when RabbitMQ/Kafka/Spark workers have an independent runtime, release cadence, or scaling requirement.
 
 Remote GitHub repositories still need to be created or connected by the owner. No credentials or remote URLs are stored in the workspace.
+
+## Commit plan from this point
+
+1. Keep `main` deployable and use one focused conventional commit per feature.
+2. Run `pnpm check` and `pnpm build` before each application commit.
+3. Commit shared contract changes before the API or web consumer that uses them.
+4. Use pull requests for feature branches and deploy the selected merge commit to staging.
+5. Promote the exact tested staging commit/artifact to production after smoke tests and approval.
+6. Tag the first verified public demo as `v0.1.0`.
