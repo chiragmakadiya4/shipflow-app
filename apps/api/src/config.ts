@@ -14,7 +14,7 @@ export function loadConfig(env: NodeJS.ProcessEnv = process.env) {
     REDIS_URL: env.REDIS_URL,
   };
   if (!Value.Check(environmentSchema, input)) throw new Error('Invalid environment configuration');
-  const port = Number(input.PORT ?? 3000);
+  const port = Number(input.PORT ?? 4000);
   if (!Number.isInteger(port) || port <= 0) throw new Error('Invalid PORT configuration');
   return {
     PORT: port,

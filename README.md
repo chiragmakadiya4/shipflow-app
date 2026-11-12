@@ -1,16 +1,16 @@
 # Full-Stack Platform
 
-This repository contains ShipFlow, a deployment and release platform built from the full-stack industry roadmap: a TypeScript React frontend, Fastify API, PostgreSQL persistence, Redis-ready local infrastructure, shared contracts, tests, and CI.
+This repository contains ShipFlow, a deployment and release platform built from the full-stack industry roadmap: a Next.js TypeScript frontend, Fastify API, PostgreSQL persistence, Redis-ready local infrastructure, shared contracts, tests, and CI.
 
 ## Local setup
 
 1. Install Node.js 22+ and pnpm 9+.
 2. Run `pnpm install`.
-3. Copy `.env.example` to `.env`.
-4. Start PostgreSQL and Redis with `docker compose up -d`.
+3. Copy `.env.example` to `.env` for the API and copy `apps/web/.env.local.example` to `apps/web/.env.local` for Supabase.
+4. Start PostgreSQL and Redis with `docker compose up -d` when Docker is available.
 5. Run the migration with `DATABASE_URL=postgres://app:app@localhost:5432/platform pnpm db:migrate`.
-6. Start the API with `DATABASE_URL=postgres://app:app@localhost:5432/platform pnpm --filter @fullstack/api dev`.
-7. Start the web app with `pnpm --filter @fullstack/web dev`.
+6. Start the API with `pnpm --filter @fullstack/api dev`. It uses the in-memory repository when `DATABASE_URL` is omitted.
+7. Start the web app with `pnpm --filter @fullstack/web dev` and open `http://localhost:3000`; the API runs at `http://localhost:4000`.
 
 If `DATABASE_URL` is omitted, the API uses an in-memory repository for local demonstrations and tests. Production and staging must always configure PostgreSQL.
 
@@ -30,7 +30,7 @@ The current automated tests cover API health, authentication checks, organizatio
 ## Repository structure
 
 - `apps/api`: Fastify API and repository adapters.
-- `apps/web`: React/Vite application.
+- `apps/web`: Next.js App Router application with Supabase SSR integration.
 - `packages/contracts`: shared API/domain types.
 - `infra/postgres`: versioned SQL migrations.
 - `docker-compose.yml`: local PostgreSQL and Redis services.
