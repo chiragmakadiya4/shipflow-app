@@ -243,6 +243,8 @@ Minimum initial coverage is not a vanity percentage. The required paths are auth
 - [x] Created and initialized the sibling `shipflow-infra` repository skeleton.
 - [x] Documented the staging-to-production commit/artifact promotion boundary.
 - [x] Created initial commits in both local repositories.
-- [ ] Create/connect the corresponding remote GitHub repositories — GitHub connector requested; pending activation/authentication.
+- [x] Create/connect the corresponding remote GitHub repositories and push the initial `main` branches:
+  - [shipflow-app](https://github.com/chiragmakadiya4/shipflow-app)
+  - [shipflow-infra](https://github.com/chiragmakadiya4/shipflow-infra)
 - [ ] Create focused feature branches and commit the next implementation slices using conventional commits.
 - [ ] Add Terraform modules only when the first hosted resources are ready to be managed.

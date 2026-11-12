@@ -91,7 +91,12 @@ Every commit should pass formatting, lint, typecheck, and relevant tests. Do not
 - `shipflow-infra`: initialized as a sibling directory with Terraform, Vercel, and GitHub configuration boundaries. It currently contains documentation only because hosted resources have not been provisioned.
 - `shipflow-workers`: intentionally not created yet. Create it when RabbitMQ/Kafka/Spark workers have an independent runtime, release cadence, or scaling requirement.
 
-Remote GitHub repositories still need to be created or connected. The GitHub connector has been requested but is not yet available in this session; no credentials or remote URLs are stored in the workspace.
+Remote GitHub repositories are connected:
+
+- [shipflow-app](https://github.com/chiragmakadiya4/shipflow-app)
+- [shipflow-infra](https://github.com/chiragmakadiya4/shipflow-infra)
+
+No credentials are stored in the workspace.
 
 ## Commit plan from this point
 
